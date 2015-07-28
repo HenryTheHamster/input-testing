@@ -48,6 +48,10 @@ module.exports = {
         var modifiedKey = modifier.join('_') + '_' + safeId(key);
         var modLabel = modifier.join('+') + '+' + key;
 
+        if (modifiedKey === 'ctrl_tab' || modifiedKey === 'ctrl_shift_tab') {
+          return;
+        }
+
         keyState.push({id: modifiedKey, key: modLabel, pressed: false});
       });
     });

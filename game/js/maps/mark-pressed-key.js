@@ -61,6 +61,10 @@ function markPressedKeys () {
     each(modifiers, function(modifier) {
       var modifiedKey = modifier.join('_') + '_' + safeKey;
 
+      if (modifiedKey === 'ctrl_tab' || modifiedKey === 'ctrl_shift_tab') {
+        return;
+      }
+
       actionMap[key].push({
         target: setKeyAsPressed(modifiedKey),
         modifiers: modifier
