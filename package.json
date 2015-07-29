@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "ensemblejs": "^4.3.1",
-    "ensemblejs-client": "^2.2.1"
+    "ensemblejs-client": "^2.2.2"
   },
   "devDependencies": {
     "browserify": "^8.1.1",
