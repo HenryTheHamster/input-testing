@@ -4,7 +4,6 @@
 }
 
 .inputTesting span {
-  border: 1px solid white;
   padding: 4px;
   margin: 2px;
   border-radius: 2px;
@@ -14,4 +13,12 @@
 
 .it-works {
   background-color: orange;
+}
+
+.initial-border {
+  border: 2px dotted white;
+}
+
+.single-key-works {
+  border: 2px solid purple;
 }

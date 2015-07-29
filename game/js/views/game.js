@@ -14,6 +14,9 @@ module.exports = {
       if (keyState.pressed) {
         $('#' + id).addClass('it-works');
       }
+      if (keyState.singleKey) {
+        $('#' + id).removeClass('initial-border').addClass('single-key-works');
+      }
     };
 
     var theKeys = function (state) { return state.inputTesting.keys; };

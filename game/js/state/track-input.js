@@ -52,7 +52,12 @@ module.exports = {
           return;
         }
 
-        keyState.push({id: modifiedKey, key: modLabel, pressed: false});
+        keyState.push({
+          id: modifiedKey,
+          key: modLabel,
+          pressed: false,
+          singleKey: false
+        });
       });
     });
 

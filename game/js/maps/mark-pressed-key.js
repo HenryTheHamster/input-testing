@@ -3,14 +3,14 @@
 var each = require('lodash').each;
 var select = require('lodash').select;
 
-function setKeyAsPressed (key) {
+function setKeyAsPressed (key, prop) {
   return function (state) {
     var keys = state.for('inputTesting').get('keys');
 
-    select(keys, {id: key})[0].pressed = true;
+    select(keys, {id: key})[0][prop] = true;
 
     return {
-      ensembleDebug: {
+      inputTesting: {
         keys: keys
       }
     };
@@ -56,7 +56,15 @@ function markPressedKeys () {
 
   each(keys, function(key) {
     var safeKey = safeId(key);
-    actionMap[key] = [{target: setKeyAsPressed(safeKey) }];
+    actionMap[key] = [
+      {
+        target: setKeyAsPressed(safeKey, 'pressed')
+      },
+      {
+        target: setKeyAsPressed(safeKey, 'singleKey'),
+        onRelease: true
+      }
+    ];
 
     each(modifiers, function(modifier) {
       var modifiedKey = modifier.join('_') + '_' + safeKey;
@@ -66,8 +74,13 @@ function markPressedKeys () {
       }
 
       actionMap[key].push({
-        target: setKeyAsPressed(modifiedKey),
+        target: setKeyAsPressed(modifiedKey, 'pressed'),
         modifiers: modifier
+      });
+      actionMap[key].push({
+        target: setKeyAsPressed(modifiedKey, 'singleKey'),
+        modifiers: modifier,
+        onRelease: true
       });
     });
   });
