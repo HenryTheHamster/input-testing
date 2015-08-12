@@ -8,7 +8,9 @@
   },
   "dependencies": {
     "ensemblejs": "^4.3.1",
-    "ensemblejs-client": "^2.2.2"
+    "ensemblejs-client": "^2.2.2",
+    "zepto-browserify": "^1.1.6-1",
+    "lodash": "latest"
   },
   "devDependencies": {
     "browserify": "^8.1.1",
