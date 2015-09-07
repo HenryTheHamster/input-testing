@@ -1,31 +1,31 @@
 'use strict';
 
+var each = require('lodash').each;
+
+var overlay = require('../../views/partials/inputTesting.jade');
+var keyPartial = require('../../views/partials/key-state.jade');
+
+function theKeys (state) { return state.inputTesting.keys; };
+
 module.exports = {
-  deps: ['StateTracker', 'CurrentState'],
-  type: 'View',
-  func: function (tracker, currentState) {
-    var $ = require('zepto-browserify').$;
-    var each = require('lodash').each;
+  type: 'OnReady',
+  deps: ['StateTracker', 'CurrentState', '$'],
+  func: function InputTesting (tracker, currentState, $) {
 
-    var overlay = require('../../views/partials/inputTesting.jade');
-    var keyPartial = require('../../views/partials/key-state.jade');
-
-    var updateKeyState = function(id, keyState) {
+    function updateKeyState (id, keyState) {
       if (keyState.pressed) {
-        $('#' + id).addClass('it-works');
+        $()('#' + id).addClass('it-works');
       }
       if (keyState.singleKey) {
-        $('#' + id).removeClass('initial-border').addClass('single-key-works');
+        $()('#' + id).removeClass('initial-border').addClass('single-key-works');
       }
     };
 
-    var theKeys = function (state) { return state.inputTesting.keys; };
+    return function setup () {
+      $()('#overlay').append(overlay());
 
-    return function () {
-      $('#overlay').append(overlay());
-
-      each(currentState().get(theKeys), function(keyState) {
-        $('#inputTesting').append(keyPartial(keyState));
+      each(currentState().get(theKeys), function appendEachKey (keyState) {
+        $()('#inputTesting').append(keyPartial(keyState));
       });
 
       tracker().onElementChanged(theKeys, updateKeyState);

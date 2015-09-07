@@ -7,10 +7,8 @@
     "npm": "latest"
   },
   "dependencies": {
-    "ensemblejs": "^4.3.1",
-    "ensemblejs-client": "^2.2.2",
-    "zepto-browserify": "^1.1.6-1",
-    "lodash": "latest"
+    "lodash": "latest",
+    "ensemblejs": "^5.0.0-beta-rc2"
   },
   "devDependencies": {
     "browserify": "^8.1.1",
@@ -43,7 +41,8 @@
           "compileDebug": false,
           "pretty": false
         }
-      ]
+      ],
+      "require-globify"
     ]
   },
   "browserify-shim": {
