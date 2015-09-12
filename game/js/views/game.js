@@ -5,10 +5,10 @@ var each = require('lodash').each;
 var overlay = require('../../views/partials/inputTesting.jade');
 var keyPartial = require('../../views/partials/key-state.jade');
 
-function theKeys (state) { return state.inputTesting.keys; };
+function theKeys (state) { return state.inputTesting.keys; }
 
 module.exports = {
-  type: 'OnReady',
+  type: 'OnClientReady',
   deps: ['StateTracker', 'CurrentState', '$'],
   func: function InputTesting (tracker, currentState, $) {
 
@@ -19,7 +19,7 @@ module.exports = {
       if (keyState.singleKey) {
         $()('#' + id).removeClass('initial-border').addClass('single-key-works');
       }
-    };
+    }
 
     return function setup () {
       $()('#overlay').append(overlay());

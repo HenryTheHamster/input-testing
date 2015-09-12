@@ -7,8 +7,8 @@
     "npm": "latest"
   },
   "dependencies": {
-    "lodash": "latest",
-    "ensemblejs": "^5.0.0-beta-rc2"
+    "ensemblejs": "^5.0.0",
+    "lodash": "latest"
   },
   "devDependencies": {
     "browserify": "^8.1.1",
