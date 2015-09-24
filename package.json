@@ -1,5 +1,5 @@
 {
-  "name": "ensemblejs-start-here",
+  "name": "ensemblejs-input-testing",
   "version": "1.0.0",
   "description": "Your game description goes here",
   "engines": {
@@ -7,7 +7,7 @@
     "npm": "latest"
   },
   "dependencies": {
-    "ensemblejs": "^5.0.0",
+    "ensemblejs": "^5.1.0",
     "lodash": "latest"
   },
   "devDependencies": {
