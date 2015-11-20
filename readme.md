@@ -8,11 +8,7 @@ Current support:
 - mouse
 - touch
 
-## Install dependencies
-npm i
-
 ## Start a local development server (in port 3000)
 ```shell
-gulp local
-open http://localhost:3000/
+npm i && npm start
 ```
